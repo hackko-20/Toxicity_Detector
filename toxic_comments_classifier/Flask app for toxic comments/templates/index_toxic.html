@@ -5,8 +5,8 @@
 
   <meta charset="UTF-8">
 
-  <title>Term Deposit Purchase Prediction</title>
-
+  <title>Toxicity Detector</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <!-- Loading font types -->
   <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
@@ -17,23 +17,30 @@
 
 <body onload="myFunction()>
  <div class="login">
-	  <h1>Is your comment toxic?</h1>
-
+	  <h1>Detect the toxicity of your comment</h1>
+    <br>
      <!-- Main Input For Receiving Query to our ML -->
     <form action="{{ url_for('predict')}}"method="post">
-    	<input id='text' type="text" name="text" placeholder="Enter your text" required="required" size="25" style="font-size:25px;"/>
-
+    	
+      <div class="input-group input-group-lg">
+        <span class="input-group-text" id="inputGroup-sizing-lg">Enter your text</span>
+        <input id='text' type="text" name="text" placeholder="Enter your text" required="required" size="25" style="font-size:25px;"class="form-control" aria-label="Enter you text" required="required" aria-describedby="inputGroup-sizing-lg"/>
+      </div>
+      <br>
       <button id='button' type="submit" class="btn btn-primary btn-block btn-large" style="font-size: 20px;"> Predict</button>
     </form>
 
-       <h3>{{ pred_tox }} <br><br>
+       <h4>{{ pred_tox }} <br><br>
     {{ pred_sev }} <br><br>
     {{ pred_obs }} <br><br>
     {{ pred_ins }} <br><br>
     {{ pred_thr }} <br><br>
-    {{ pred_ide }}</h3>
+    {{ pred_ide }}</h4>
 
 
  </div>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
 </html>
